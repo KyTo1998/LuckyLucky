@@ -1,0 +1,59 @@
+﻿<Window x:Class="VongQuayMayMan.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VongQuayMayMan"
+        mc:Ignorable="d"
+        Title="Lucky" Height="450" Width="800">
+    <Grid>
+        <StackPanel Margin="20">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Text="Thêm người chơi: " VerticalAlignment="Center" FontSize="18" FontWeight="Medium" Foreground="Green" HorizontalAlignment="Center"/>
+                <Border Grid.Column="1" x:Name="boderEmailInRegister" CornerRadius="15" BorderThickness="1" Height="42" Margin="40,0,40,0" VerticalAlignment="Center" BorderBrush="#FF999999">
+                    <StackPanel Orientation="Horizontal">
+                        <Path Data="{StaticResource iconPerson}" StrokeThickness="0.5" Stroke="#FF666666" Fill="#FF666666" Margin="14,0,0,0" VerticalAlignment="Center"></Path>
+                        <Grid Height="39" Margin="14,0,0,0" Width="299" >
+                            <TextBox x:Name="PlayerNameTextBox" TextWrapping="NoWrap" VerticalAlignment="Top" BorderBrush="{x:Null}" Background="{x:Null}" BorderThickness="0" FontSize="16"  Padding="0,6,0,0" Height="39"/>
+                            <TextBlock IsHitTestVisible="False" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" Height="39" Background="{x:Null}" FontSize="16" Padding="0,6,0,0" Foreground="#FF666666">
+                                <TextBlock.Style>
+                                    <Style TargetType="{x:Type TextBlock}">
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Text, ElementName=PlayerNameTextBox}" Value="">
+                                                <Setter Property="Visibility" Value="Visible"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style><Run Text="Nhập tên người chơi"/><Run Text="*" Foreground="#FF3333"/></TextBlock>
+                        </Grid>
+                    </StackPanel>
+                </Border>
+                <Border  MouseLeftButtonDown="AddPlayerButton_Click" Grid.Column="2" Background="Green" CornerRadius="10" HorizontalAlignment="Center">
+                    <TextBlock Text="Thêm" FontSize="18" FontWeight="Medium" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" Margin="50 5 50 5"/>
+                </Border>
+            </Grid>
+            <Grid Margin="0 20 0 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+                <Border  Grid.Column="0" MaxHeight="42" MouseLeftButtonDown="SpinButton_Click" Background="Green" CornerRadius="10" HorizontalAlignment="Center">
+                    <TextBlock Text="Quay thưởng" FontSize="18" FontWeight="Medium" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" Margin="50 5 50 5"/>
+                </Border>
+                <Border Grid.Column="1" x:Name="wheelCanvas" Width="285" Height="300" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                    <Grid>
+                        <Ellipse Fill="LightBlue" Width="300" Height="300" Canvas.Left="-6" Canvas.Top="-6" RenderTransformOrigin="0.586,0.517" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                    </Grid>
+                </Border>
+            </Grid>
+
+            
+        </StackPanel>
+    </Grid>
+</Window>
